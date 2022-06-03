@@ -14,6 +14,8 @@ namespace WindowsFormsApp.Models
         #region Private fields
         private IEnumerable<object> _genders;
         private IEnumerable<object> _languages;
+        private Gender? _selectedGender;
+        private Lang? _selectedLang;
         #endregion
 
         #region Public Properties
@@ -31,6 +33,22 @@ namespace WindowsFormsApp.Models
             set
             {
                 OnPropertyChanged(new PropertyChangedEventArgs(nameof(Languages)));
+            }
+        }
+        public Gender? SelectedGender
+        {
+            get => _selectedGender;
+            set
+            {
+                _selectedGender = value;
+            }
+        }
+        public Lang? SelectedLang
+        {
+            get => _selectedLang;
+            set
+            {
+                _selectedLang = value;
             }
         }
         #endregion

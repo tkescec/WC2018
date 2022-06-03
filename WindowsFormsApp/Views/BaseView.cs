@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Forms;
 using WindowsFormsApp.Contracts;
+using WindowsFormsApp.Events;
 using WindowsFormsApp.Providers;
 
 namespace WindowsFormsApp.Views
