@@ -84,6 +84,12 @@
     <Compile Include="Contracts\IViewModel.cs" />
     <Compile Include="Events\CultureDelegate.cs" />
     <Compile Include="Events\CultureEventArgs.cs" />
+    <Compile Include="Events\DalDelegate.cs" />
+    <Compile Include="Events\DalEventArgs.cs" />
+    <Compile Include="Events\SettingsDelegate.cs" />
+    <Compile Include="Events\SettingsEventArgs.cs" />
+    <Compile Include="Events\ViewDelegate.cs" />
+    <Compile Include="Events\ViewEventArgs.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,18 +98,57 @@
     </Compile>
     <Compile Include="Models\BaseViewModel.cs" />
     <Compile Include="Models\MainViewModel.cs" />
+    <Compile Include="Models\MatchesRankViewModel.cs" />
+    <Compile Include="Models\PlayersRankViewModel.cs" />
+    <Compile Include="Models\PlayersViewModel.cs" />
     <Compile Include="Models\SettingsViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\AbstractDescriptionProvider.cs" />
+    <Compile Include="UserControls\MatchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MatchControl.Designer.cs">
+      <DependentUpon>MatchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlayerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PlayerControl.Designer.cs">
+      <DependentUpon>PlayerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\BaseView.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FavoritTeamView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\FavoritTeamView.Designer.cs">
+      <DependentUpon>FavoritTeamView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MatchesRankView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MatchesRankView.Designer.cs">
+      <DependentUpon>MatchesRankView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayersRankView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PlayersRankView.Designer.cs">
+      <DependentUpon>PlayersRankView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayersView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PlayersView.Designer.cs">
+      <DependentUpon>PlayersView.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.cs">
       <SubType>UserControl</SubType>
@@ -127,8 +172,32 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\MatchControl.resx">
+      <DependentUpon>MatchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PlayerControl.resx">
+      <DependentUpon>PlayerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FavoritTeamView.hr.resx">
+      <DependentUpon>FavoritTeamView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FavoritTeamView.resx">
+      <DependentUpon>FavoritTeamView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.hr.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MatchesRankView.resx">
+      <DependentUpon>MatchesRankView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayersRankView.resx">
+      <DependentUpon>PlayersRankView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayersView.resx">
+      <DependentUpon>PlayersView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SettingsView.hr.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
@@ -155,12 +224,40 @@
       <Project>{18050c4a-4279-45b4-bda8-95ea3bab9880}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Loader\Loader.csproj">
+      <Project>{193f414d-1e5e-4ff3-a3ab-4160946dbe04}</Project>
+      <Name>Loader</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cover.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\player.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favorit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\field.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\balll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yellowCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soccer-field.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

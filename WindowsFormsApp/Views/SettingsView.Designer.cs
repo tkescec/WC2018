@@ -31,12 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsView));
             this.lbTitle = new System.Windows.Forms.Label();
-            this.pbCover = new System.Windows.Forms.PictureBox();
             this.lblSettingsText = new System.Windows.Forms.Label();
             this.cbSettingsGender = new System.Windows.Forms.ComboBox();
             this.lblSettingsGender = new System.Windows.Forms.Label();
             this.cbSettingsLang = new System.Windows.Forms.ComboBox();
             this.lblSettingsLang = new System.Windows.Forms.Label();
+            this.btnSettingsNext = new System.Windows.Forms.Button();
+            this.pbCover = new System.Windows.Forms.PictureBox();
             this.settingsViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbCover)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsViewModelBindingSource)).BeginInit();
@@ -46,13 +47,6 @@
             // 
             resources.ApplyResources(this.lbTitle, "lbTitle");
             this.lbTitle.Name = "lbTitle";
-            // 
-            // pbCover
-            // 
-            this.pbCover.Image = global::WindowsFormsApp.Properties.Resources.cover;
-            resources.ApplyResources(this.pbCover, "pbCover");
-            this.pbCover.Name = "pbCover";
-            this.pbCover.TabStop = false;
             // 
             // lblSettingsText
             // 
@@ -85,6 +79,20 @@
             resources.ApplyResources(this.lblSettingsLang, "lblSettingsLang");
             this.lblSettingsLang.Name = "lblSettingsLang";
             // 
+            // btnSettingsNext
+            // 
+            resources.ApplyResources(this.btnSettingsNext, "btnSettingsNext");
+            this.btnSettingsNext.Name = "btnSettingsNext";
+            this.btnSettingsNext.UseVisualStyleBackColor = true;
+            this.btnSettingsNext.Click += new System.EventHandler(this.SettingsNext_Click);
+            // 
+            // pbCover
+            // 
+            this.pbCover.Image = global::WindowsFormsApp.Properties.Resources.cover;
+            resources.ApplyResources(this.pbCover, "pbCover");
+            this.pbCover.Name = "pbCover";
+            this.pbCover.TabStop = false;
+            // 
             // settingsViewModelBindingSource
             // 
             this.settingsViewModelBindingSource.DataSource = typeof(WindowsFormsApp.Models.SettingsViewModel);
@@ -94,6 +102,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnSettingsNext);
             this.Controls.Add(this.cbSettingsLang);
             this.Controls.Add(this.lblSettingsLang);
             this.Controls.Add(this.cbSettingsGender);
@@ -102,6 +111,7 @@
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.pbCover);
             this.Name = "SettingsView";
+            this.Load += new System.EventHandler(this.SettingsView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbCover)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.settingsViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -119,5 +129,6 @@
         public System.Windows.Forms.ComboBox cbSettingsGender;
         private System.Windows.Forms.ComboBox cbSettingsLang;
         private System.Windows.Forms.Label lblSettingsLang;
+        private System.Windows.Forms.Button btnSettingsNext;
     }
 }

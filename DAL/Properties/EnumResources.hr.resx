@@ -135,6 +135,9 @@
   <data name="ExitTitle" xml:space="preserve">
     <value>Izlaz</value>
   </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Broju golova</value>
+  </data>
   <data name="Men" xml:space="preserve">
     <value>Muški</value>
   </data>
@@ -146,5 +149,8 @@
   </data>
   <data name="Women" xml:space="preserve">
     <value>Ženski</value>
+  </data>
+  <data name="YellowCard" xml:space="preserve">
+    <value>Broju žutih kartona</value>
   </data>
 </root>

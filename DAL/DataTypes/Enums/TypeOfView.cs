@@ -3,6 +3,7 @@
     public enum TypeOfView
     {
         MainView,
-        SettingsView
+        SettingsView,
+        FavoritTeamView
     }
 }

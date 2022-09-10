@@ -151,33 +151,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lbTitle.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="pbCover.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pbCover.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 0</value>
-  </data>
-  <data name="pbCover.Size" type="System.Drawing.Size, System.Drawing">
-    <value>390, 556</value>
-  </data>
-  <data name="pbCover.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="pbCover.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pbCover.Name" xml:space="preserve">
-    <value>pbCover</value>
-  </data>
-  <data name="&gt;&gt;pbCover.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pbCover.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pbCover.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="lblSettingsText.Font" type="System.Drawing.Font, System.Drawing">
@@ -211,7 +184,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSettingsText.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbSettingsGender.Location" type="System.Drawing.Point, System.Drawing">
     <value>448, 235</value>
@@ -232,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbSettingsGender.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="lblSettingsGender.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -262,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSettingsGender.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="cbSettingsLang.Location" type="System.Drawing.Point, System.Drawing">
     <value>448, 306</value>
@@ -283,7 +256,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbSettingsLang.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lblSettingsLang.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -313,7 +286,61 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblSettingsLang.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="btnSettingsNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSettingsNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 374</value>
+  </data>
+  <data name="btnSettingsNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnSettingsNext.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnSettingsNext.Text" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsNext.Name" xml:space="preserve">
+    <value>btnSettingsNext</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsNext.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnSettingsNext.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="pbCover.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbCover.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 0</value>
+  </data>
+  <data name="pbCover.Size" type="System.Drawing.Size, System.Drawing">
+    <value>390, 556</value>
+  </data>
+  <data name="pbCover.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbCover.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pbCover.Name" xml:space="preserve">
+    <value>pbCover</value>
+  </data>
+  <data name="&gt;&gt;pbCover.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbCover.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pbCover.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <metadata name="settingsViewModelBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

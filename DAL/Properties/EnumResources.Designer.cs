@@ -115,6 +115,15 @@ namespace DAL.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of Goals.
+        /// </summary>
+        public static string Goal {
+            get {
+                return ResourceManager.GetString("Goal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Men.
         /// </summary>
         public static string Men {
@@ -147,6 +156,15 @@ namespace DAL.Properties {
         public static string Women {
             get {
                 return ResourceManager.GetString("Women", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of Yellow Cards.
+        /// </summary>
+        public static string YellowCard {
+            get {
+                return ResourceManager.GetString("YellowCard", resourceCulture);
             }
         }
     }

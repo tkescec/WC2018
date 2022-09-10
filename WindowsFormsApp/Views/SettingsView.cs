@@ -1,11 +1,17 @@
 ﻿using DAL.DataTypes.Enums;
+using DAL.Properties;
+using DAL.Repositories;
+using DAL.Services;
+using Loader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp.Events;
@@ -20,12 +26,13 @@ namespace WindowsFormsApp.Views
         #endregion
 
         #region Public fields
-        public event CultureDelegate LangChange;
+        public event ViewDelegate ViewChange;
+        public event DalDelegate InitDal;
         #endregion
 
 
         #region Ctor
-        public SettingsView(SettingsViewModel model = null)
+        public SettingsView(SettingsViewModel model = null, Loading loading = null, IRepository repositiory = null)
         {
             if (model != null)
             {
@@ -37,20 +44,21 @@ namespace WindowsFormsApp.Views
             }
 
             InitializeComponent();
+            
+        }
+        #endregion
+
+        #region Private Methods
+
+        private void SettingsView_Load(object sender, EventArgs e)
+        {
+            SetCulture(_model.SelectedLang, this);
             PerformBinding();
 
             cbSettingsLang.SelectedValueChanged += new EventHandler(SettingsLang_SelectedValueChanged);
             cbSettingsGender.SelectedValueChanged += new EventHandler(SettingsGender_SelectedValueChanged);
         }
-        #endregion
 
-        public sealed override void PerformBinding()
-        {
-            ComboBoxDataBindings(cbSettingsGender, _model.Genders, (int?)_model.SelectedGender);
-            ComboBoxDataBindings(cbSettingsLang, _model.Languages, (int?)_model.SelectedLang);
-        }
-
-        #region Private Methods
         private void ComboBoxDataBindings(ComboBox control, IEnumerable<object> objects, int? selected)
         {
             control.DataSource = objects.ToList();
@@ -63,20 +71,6 @@ namespace WindowsFormsApp.Views
         {
             ComboBox comboBox = sender as ComboBox;
             _model.SelectedLang = (Lang)comboBox.SelectedValue;
-
-            switch (_model.SelectedLang)
-            {
-                case Lang.English:
-                    LangChange.Invoke(this, new CultureEventArgs { CultureName = "en" });
-                    break;
-                case Lang.Croatian:
-                    LangChange.Invoke(this, new CultureEventArgs { CultureName = "hr" });
-                    break;
-                default:
-                    LangChange.Invoke(this, new CultureEventArgs { CultureName = "en" });
-                    break;
-            }
-
         }
 
         private void SettingsGender_SelectedValueChanged(object sender, EventArgs e)
@@ -84,6 +78,18 @@ namespace WindowsFormsApp.Views
             ComboBox comboBox = sender as ComboBox;
             _model.SelectedGender = (Gender)comboBox.SelectedValue;
         }
+
+        private void SettingsNext_Click(object sender, EventArgs e)
+        {
+            InitDal?.Invoke(this, new DalEventArgs { SelectedGender = _model.SelectedGender });
+            ViewChange?.Invoke(this, new ViewEventArgs { ViewName = TypeOfView.FavoritTeamView });
+        }
         #endregion
+
+        public sealed override void PerformBinding()
+        {
+            ComboBoxDataBindings(cbSettingsGender, _model.Genders, (int?)_model.SelectedGender);
+            ComboBoxDataBindings(cbSettingsLang, _model.Languages, (int?)_model.SelectedLang);
+        }
     }
 }

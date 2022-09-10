@@ -1,5 +1,6 @@
 ﻿using DAL.DataTypes.Enums;
 using DAL.Extensions;
+using DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,10 @@ namespace WindowsFormsApp.Models
         #region Private fields
         private IEnumerable<object> _genders;
         private IEnumerable<object> _languages;
-        private Gender? _selectedGender;
-        private Lang? _selectedLang;
+        private Gender _selectedGender;
+        private Lang _selectedLang;
+        private string _selectedTeam;
+        private List<Team> _teams;
         #endregion
 
         #region Public Properties
@@ -35,7 +38,7 @@ namespace WindowsFormsApp.Models
                 OnPropertyChanged(new PropertyChangedEventArgs(nameof(Languages)));
             }
         }
-        public Gender? SelectedGender
+        public Gender SelectedGender
         {
             get => _selectedGender;
             set
@@ -43,12 +46,28 @@ namespace WindowsFormsApp.Models
                 _selectedGender = value;
             }
         }
-        public Lang? SelectedLang
+        public Lang SelectedLang
         {
             get => _selectedLang;
             set
             {
                 _selectedLang = value;
+            }
+        }
+        public string SelectedTeam
+        {
+            get => _selectedTeam;
+            set
+            {
+                _selectedTeam = value;
+            }
+        }
+        public List<Team> Teams
+        {
+            get => _teams;
+            set
+            {
+                _teams = value;
             }
         }
         #endregion

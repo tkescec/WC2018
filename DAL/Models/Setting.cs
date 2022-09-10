@@ -11,13 +11,16 @@ namespace DAL.Models
     [Serializable]
     public class Setting
     {
-        [JsonProperty("gender")]
+        [JsonProperty("SelectedGender")]
         public Gender Gender { get; set; }
 
-        [JsonProperty("language")]
+        [JsonProperty("SelectedLang")]
         public Lang Lang { get; set; }
 
-        [JsonProperty("favorit_team")]
+        [JsonProperty("SelectedTeam")]
         public string FavoritTeam { get; set; }
+
+        [JsonProperty("FavoritPlayers")]
+        public IList<Player> FavoritPlayers { get; set; }
     }
 }

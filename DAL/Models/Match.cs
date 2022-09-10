@@ -1,10 +1,11 @@
 ﻿using DAL.Converters;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace DAL.Models
 {
-    public partial class Match
+    public partial class Match : IComparable<Match>
     {
         [JsonProperty("venue")]
         public string Venue { get; set; }
@@ -14,7 +15,7 @@ namespace DAL.Models
 
         [JsonProperty("attendance")]
         [JsonConverter(typeof(ParseStringConverter))]
-        public long? Attendance { get; set; }
+        public long Attendance { get; set; }
 
         [JsonProperty("home_team_country")]
         public string HomeTeamCountry { get; set; }
@@ -36,5 +37,10 @@ namespace DAL.Models
 
         [JsonProperty("away_team_statistics")]
         public TeamStatistic AwayTeamStatistics { get; set; }
+
+        public int CompareTo(Match other)
+        {
+            return -Attendance.CompareTo(other.Attendance);
+        }
     }
 }

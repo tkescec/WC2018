@@ -20,10 +20,10 @@ namespace DAL.Repositories
             switch (gender)
             {
                 case Gender.Women:
-                    _sourcePrefix = "w_";
+                    _sourcePrefix = "women_";
                     break;
                 case Gender.Men:
-                    _sourcePrefix = "m_";
+                    _sourcePrefix = "men_";
                     break;
                 default:
                     throw new Exception("Undefined gender.");

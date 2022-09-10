@@ -1,7 +1,11 @@
-﻿using DAL.DataTypes.Enums;
+﻿using DAL;
+using DAL.DataTypes.Enums;
 using DAL.Extensions;
+using DAL.Models;
 using DAL.Properties;
+using DAL.Repositories;
 using DAL.Services;
+using Loader;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +28,8 @@ namespace WindowsFormsApp
         #region Private Fields
         private BaseView _view;
         private BaseViewModel _model;
+        private Loading _loading;
+        private IRepository _repository;
         #endregion
 
         #region Private Methods
@@ -36,11 +42,17 @@ namespace WindowsFormsApp
                 switch (view)
                 {
                     case TypeOfView.MainView:
-                        _view = new MainView(_model as MainViewModel);
+                        Setting settings = FileService.ReadSettingsFile();
+                        Dal(settings.Gender);
+                        _model = new MainViewModel(settings);
+                        _view = new MainView(_model as MainViewModel, _loading, _repository);
                         break;
                     case TypeOfView.SettingsView:
-                        _view = new SettingsView(_model as SettingsViewModel);
-                        SubscribeToEvent(_view);
+                        _model = new SettingsViewModel();
+                        _view = new SettingsView(_model as SettingsViewModel, _loading, _repository);
+                        break;
+                    case TypeOfView.FavoritTeamView:
+                        _view = new FavoritTeamView(_model as SettingsViewModel, _loading, _repository);
                         break;
                     default:
                         break;
@@ -52,40 +64,91 @@ namespace WindowsFormsApp
             }
 
             Controls.Add(_view);
+            SubscribeToEvents();
+
+            
         }
 
-        private void SubscribeToEvent(BaseView view)
+        private void SubscribeToEvents()
         {
-            SettingsView settingsView = (SettingsView)view;
-            settingsView.LangChange += new CultureDelegate(ChangeLang);
+            MainView mainView;
+            SettingsView settingsView;
+            FavoritTeamView favoritTeamView;
+
+            TypeOfView typeOfView = GetTypeOfView();
+
+            switch (typeOfView)
+            {
+                case TypeOfView.MainView:
+                    mainView = (MainView)_view;
+                    mainView.SaveSettings += new SettingsDelegate(SaveSettings);
+                    break;
+                case TypeOfView.SettingsView:
+                    settingsView = (SettingsView)_view;
+                    settingsView.ViewChange += new ViewDelegate(ChangeView);
+                    settingsView.InitDal += new DalDelegate(InitDal);
+                    break;
+                case TypeOfView.FavoritTeamView:
+                    favoritTeamView = (FavoritTeamView)_view;
+                    favoritTeamView.ViewChange += new ViewDelegate(ChangeView);
+                    favoritTeamView.SaveSettings += new SettingsDelegate(SaveSettings);
+                    break;
+                default:
+                    break;
+            }
+
+            
         }
 
-        private void ChangeLang(object sender, CultureEventArgs e)
+        private TypeOfView GetTypeOfView()
         {
-            SetCulture(e.CultureName);
-        }
-        #endregion
+            var currentViewName = _view.GetType().Name;
+            TypeOfView typeOfView = (TypeOfView)Enum.Parse(typeof(TypeOfView), currentViewName, true);
 
-        #region Public Methods
-        public void SetCulture(string cultureName)
+            return typeOfView;
+        }
+
+        private void Dal(Gender gender)
         {
             try
             {
-                CultureInfo customCulture = new CultureInfo(cultureName);
-                Thread.CurrentThread.CurrentUICulture = customCulture;
-                Thread.CurrentThread.CurrentCulture = customCulture;
-                EnumResources.Culture = customCulture;
-
-                var currentViewName = _view.GetType().Name;
-                TypeOfView typeOfView = (TypeOfView)Enum.Parse(typeof(TypeOfView), currentViewName, true);
-
-                SwapView(typeOfView);
+                _repository = RepositoryFactory.GetRepository(gender);
             }
             catch (Exception)
             {
                 AlertBox.Show(AlertType.Error);
             }
         }
+
+        private void ChangeView(object sender, ViewEventArgs e)
+        {
+            SwapView(e.ViewName);
+        }
+
+        private void InitDal(object sender, DalEventArgs e)
+        {
+            Dal(e.SelectedGender);
+        }
+
+        private void SaveSettings(object sender, SettingsEventArgs e)
+        {
+            SaveSettingsData(e.Settings);
+        }
+        #endregion
+
+        #region Public Methods
+        public void SaveSettingsData(Setting settings)
+        {
+            try
+            {
+                FileService.CreateFile(settings);
+            }
+            catch (Exception)
+            {
+                AlertBox.Show(AlertType.Error);
+            }
+        }
+
         #endregion
 
         #region Ctor
@@ -93,15 +156,15 @@ namespace WindowsFormsApp
         {
             if (FileService.FileExist())
             {
-                _model = new MainViewModel();
                 SwapView(TypeOfView.MainView);
             }
             else
             {
-                _model = new SettingsViewModel();
                 SwapView(TypeOfView.SettingsView);
             }
 
+            _loading = new Loading();
+            
             InitializeComponent();
         }
         #endregion
@@ -119,7 +182,7 @@ namespace WindowsFormsApp
             }
             else
             {
-                //_waitDialog.Close();
+                _loading.Close();
             }
         }
         #endregion
