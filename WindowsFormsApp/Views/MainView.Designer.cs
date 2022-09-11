@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainView));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mainStatus = new System.Windows.Forms.StatusStrip();
             this.tabMainControl = new System.Windows.Forms.TabControl();
             this.tabPlayers = new System.Windows.Forms.TabPage();
             this.tabPlayerRanks = new System.Windows.Forms.TabPage();
             this.tabMatchRank = new System.Windows.Forms.TabPage();
+            this.settingsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.tabMainControl.SuspendLayout();
             this.SuspendLayout();
@@ -46,14 +47,16 @@
             // 
             this.mainMenu.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsMenuItem});
+            this.fileMenuItem});
             resources.ApplyResources(this.mainMenu, "mainMenu");
             this.mainMenu.Name = "mainMenu";
             // 
-            // settingsMenuItem
+            // fileMenuItem
             // 
-            this.settingsMenuItem.Name = "settingsMenuItem";
-            resources.ApplyResources(this.settingsMenuItem, "settingsMenuItem");
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsMenuItem});
+            this.fileMenuItem.Name = "fileMenuItem";
+            resources.ApplyResources(this.fileMenuItem, "fileMenuItem");
             // 
             // contextMenuStrip1
             // 
@@ -94,6 +97,11 @@
             this.tabMatchRank.Name = "tabMatchRank";
             this.tabMatchRank.UseVisualStyleBackColor = true;
             // 
+            // settingsMenuItem
+            // 
+            this.settingsMenuItem.Name = "settingsMenuItem";
+            resources.ApplyResources(this.settingsMenuItem, "settingsMenuItem");
+            // 
             // MainView
             // 
             resources.ApplyResources(this, "$this");
@@ -114,12 +122,13 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.StatusStrip mainStatus;
         private System.Windows.Forms.TabControl tabMainControl;
         private System.Windows.Forms.TabPage tabPlayerRanks;
         private System.Windows.Forms.TabPage tabMatchRank;
         private System.Windows.Forms.TabPage tabPlayers;
+        private System.Windows.Forms.ToolStripMenuItem settingsMenuItem;
     }
 }
