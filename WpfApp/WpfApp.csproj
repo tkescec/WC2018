@@ -55,6 +55,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contracts\IView.cs" />
+    <Compile Include="Contracts\IViewModel.cs" />
+    <Compile Include="Model\BaseViewModel.cs" />
+    <Compile Include="Model\PlayerDetailsViewModel.cs" />
+    <Compile Include="Model\SettingsViewModel.cs" />
+    <Compile Include="Model\TeamDetailsViewModel.cs" />
+    <Compile Include="PlayerDetailsWindow.xaml.cs">
+      <DependentUpon>PlayerDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeamDetailsWindow.xaml.cs">
+      <DependentUpon>TeamDetailsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PlayerControl.xaml.cs">
+      <DependentUpon>PlayerControl.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ClosingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +85,29 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClosingWindow.xaml.cs">
+      <DependentUpon>ClosingWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamDetailsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PlayerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -95,17 +136,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
-    <Folder Include="Resources\" />
+    <Resource Include="player.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="soccer-field.jpg" />
+    <Resource Include="Resources\soccer-field.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{18050c4a-4279-45b4-bda8-95ea3bab9880}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\shirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="UserControls\shirt.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

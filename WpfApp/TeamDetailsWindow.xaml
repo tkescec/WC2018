@@ -1,0 +1,223 @@
+﻿<Window x:Class="WpfApp.TeamDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="TeamDetailsWindow" Height="500" Width="400"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+
+
+        <Label Content="CountryData"
+               Name="lblCountryData"
+               Grid.Column="1"
+               Grid.Row="1"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+        <Label Content="FIFA code:"
+               Name="lblFIFACode"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="FIFACodeData"
+               Name="lblFIFACodeData"
+               Grid.Column="2"
+               Grid.Row="2"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Games played:"
+               Name="lblGamesPlayed"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="3"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="GamesPlayedData"
+               Name="lblGamesPlayedData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="3"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Wins:"
+               Name="lblWins"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="4"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="WinsData"
+               Name="lblWinsData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="4"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Losses:"
+               Name="lblLosses"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="5"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="LossesData"
+               Name="lblLossesData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="5"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Draws:"
+               Name="lblDraws"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="6"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="DrawsData"
+               Name="lblDrawsData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="6"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Goals scored:"
+               Name="lblGoalsScored"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="7"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="GoalsScoredData"
+               Name="lblGoalsScoredData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="7"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Goals received:"
+               Name="lblGoalsReceived"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="8"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="GoalsReceivedData"
+               Name="lblGoalsReceivedData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="8"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Label Content="Goal differential:"
+               Name="lblGoalDifferential"
+               FontSize="14"
+               Grid.Column="1"
+               Grid.Row="9"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Right" 
+               Margin="0,0,10,0" 
+               FontFamily="Bahnschrift" 
+               FontWeight="Bold"/>
+
+        <Label Content="GoalDifferentialData"
+               Name="lblGoalDifferentialData"
+               FontSize="12"
+               Grid.Column="2"
+               Grid.Row="9"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Left" 
+               Margin="10,0,0,0" 
+               FontFamily="Bahnschrift"/>
+
+        <Button Name="btnClose"
+                Content="Close"
+                FontSize="16"
+                Background="#FFE6ADAD"
+                Grid.Column="1"
+                Grid.Row="11"
+                Grid.ColumnSpan="2" 
+                FontWeight="Bold" 
+                Click="BtnClose_Click"/>
+    </Grid>
+</Window>

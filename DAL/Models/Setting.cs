@@ -22,5 +22,8 @@ namespace DAL.Models
 
         [JsonProperty("FavoritPlayers")]
         public IList<Player> FavoritPlayers { get; set; }
+
+        [JsonProperty("SelectedResolution")]
+        public Resolution Resolution { get; set; }
     }
 }

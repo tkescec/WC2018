@@ -77,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\Constants\Paths.cs" />
+    <Compile Include="DataTypes\Enums\Resolution.cs" />
     <Compile Include="DataTypes\Enums\TypeOfPlayerSort.cs" />
     <Compile Include="DataTypes\Enums\TypeOfView.cs" />
     <Compile Include="RepositoryFactory.cs" />
